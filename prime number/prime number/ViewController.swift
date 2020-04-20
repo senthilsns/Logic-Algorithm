@@ -32,6 +32,13 @@ class ViewController: UIViewController {
         //MARK: Reverse String
         let reverseStr : String = IsReverseString(inputStr: "Senthilkumar")
         print(reverseStr)
+        
+        
+        //MARK: Palindrome
+        let final : String = IsPalindrome(InputStr: "aba")
+        print(final)
+        
+        
     }
     
     
@@ -91,18 +98,46 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK: Palindrome Or not
+    func IsPalindrome(InputStr:String) ->String
+    {
+      let charArray : Array = Array(InputStr)
+      var tempArray: Array<Character> = []
+      var finalStr : String = ""
+     
+      for i in (1...charArray.count).reversed() {
+
+        tempArray.append(contentsOf: "\(charArray[i-1])")
+         
+       }
+       
+       finalStr = String(tempArray)
+      
+        if InputStr == finalStr {
+            return "\(InputStr) is Palindrome"
+        }else{
+            return "\(InputStr) is Not a Palindrome"
+
+        }
+        
+    }
+    
     
     func IsRemoveDuplicateCharacter(inputStr:String) -> String {
         
-        let charArray :Array = Array(inputStr)
-        let finalArray : Array<Any>
-        
-        for i in 1...charArray.count-1 {
+        let charArray :Array<Character> = Array(inputStr)
+        var tempArray: Array<Character> = []
+        let arrLength = charArray.count
+
+        for i in 1...arrLength {
             
-            for j in i+1...charArray.count-1 {
+            for j in i+1...arrLength {
                 
-                if charArray[i] == charArray[j] {
+                if (charArray[i] == charArray[j]) {
                     // Do not print
+                    tempArray.append(contentsOf: "\(charArray[j])")
+                    print("\(charArray[j])")
+                    
                 }else{
                    // finalArray.append(charArray[i])
                 }
