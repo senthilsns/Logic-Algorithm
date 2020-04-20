@@ -6,3 +6,5 @@
 2. Swap String
 
 3. Reverse String
+
+4. Palindrome
