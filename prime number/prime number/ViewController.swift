@@ -35,10 +35,20 @@ class ViewController: UIViewController {
         
         
         //MARK: Palindrome
-        let final : String = IsPalindrome(InputStr: "aba")
+        let final : String = IsPalindrome(InputStr: "madam")
         print(final)
         
         
+        //MARK: Find MIN and Max ELEMENT IN ARRAY
+        let element = findMinandMaxElement(inputArr: [12,13,14,3,4,6,7,8])
+        print("Minimum Value = \(element.Min)")
+        print("Maximum Value = \(element.Max)")
+        
+        
+        //MARK: Find Element in Array
+        let felement : String = findElement(searchString: "s", inputArr: ["a","b","c","z","f"])
+        print(felement)
+
     }
     
     
@@ -122,6 +132,43 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK:FIND MIN AND MAX ELEMENT IN ARRAY
+    func findMinandMaxElement(inputArr:[Int])->(Min:Int,Max:Int) {
+        
+        var max = inputArr[0]
+        for i in 0...inputArr.count-1 {
+            if inputArr[i] > max {
+                max = inputArr[i]
+            }
+        }
+        
+        var min = inputArr[0]
+        for j in 0...inputArr.count-1 {
+            if inputArr[j] < min {
+                min = inputArr[j]
+            }
+            
+        }
+        
+        return (min,max)
+        
+    }
+    
+    
+    //MARK: Finding element in a Array
+    func findElement(searchString:String ,inputArr:[String]) -> String{
+        
+        for i in 0...inputArr.count-1 {
+            
+            if inputArr[i] == searchString {
+                
+                return "\(searchString) Found"
+            }
+        }
+        
+        return "\(searchString) not Found"
+
+    }
     
     func IsRemoveDuplicateCharacter(inputStr:String) -> String {
         
