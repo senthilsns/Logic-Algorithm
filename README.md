@@ -12,3 +12,5 @@
 5. Min and Max value in Array
 
 6. Finding Element in Array
+
+7. Fibonacci Series
