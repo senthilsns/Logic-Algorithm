@@ -48,7 +48,18 @@ class ViewController: UIViewController {
         //MARK: Find Element in Array
         let felement : String = findElement(searchString: "s", inputArr: ["a","b","c","z","f"])
         print(felement)
-
+        
+        //MARK: Armstrong Number
+        let arm :String = IsArmstrongNumber(input: 10)
+        print(arm)
+        
+        //MARK: Missing Element in Array
+        let num :Int = isMissingElement(InputArr: [2,3,10,4,6,7,8,9])
+        print(num)
+        
+        //MARK: Fibonacci Series
+        let fib : [Int] = FibbonacciNumber(input: 10)
+        print(fib)
     }
     
     
@@ -169,6 +180,68 @@ class ViewController: UIViewController {
         return "\(searchString) not Found"
 
     }
+    
+    
+    //MARK: Armstrong Number
+    func IsArmstrongNumber(input:Int) -> String{
+        var num : Int = 0
+        var reminder:Int = 0
+        var sum :Int = 0
+        
+        num = input
+        
+        while num != 0 {
+            reminder = num % 10
+            sum += reminder * reminder * reminder
+            num /= 10
+        }
+        
+        if input == sum {
+            
+            return "\(input) is Armstrong Number"
+        }else {
+            return "\(input) is Not Armstrong Number"
+
+        }
+        
+    }
+    
+    
+    //MARK: Missing Element in Array
+    func isMissingElement(InputArr:[Int]) -> Int {
+        var n : Int = 0
+        var total :Int = 0
+        n = InputArr.count-1
+        
+        total = (n + 1) * (n + 2) / 2
+        for i in 0...n {
+            total -= InputArr[i]
+        }
+        
+        return total
+    }
+    
+    
+    //MARK: fibonacci Number
+    func FibbonacciNumber(input:Int) -> [Int] {
+        
+        var t1 : Int = 0
+        var t2 : Int = 1
+        var nextTerm : Int = 0
+        var finalArr:[Int] = []
+        
+        for _ in 1...input {
+            
+            finalArr.append(t1)
+            nextTerm = t1 + t2
+            t1 = t2
+            t2 = nextTerm
+            
+        }
+        
+        return finalArr
+    }
+    
     
     func IsRemoveDuplicateCharacter(inputStr:String) -> String {
         
