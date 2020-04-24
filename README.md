@@ -14,3 +14,5 @@
 6. Finding Element in Array
 
 7. Fibonacci Series
+
+8. Find Duplicate Number
