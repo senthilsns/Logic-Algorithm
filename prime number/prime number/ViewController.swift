@@ -60,6 +60,10 @@ class ViewController: UIViewController {
         //MARK: Fibonacci Series
         let fib : [Int] = FibbonacciNumber(input: 10)
         print(fib)
+        
+        //MARK: Remove Duplicate
+        let duplicate : [Int] = removeDuplicate(inputArr: [1,2,2,1,3,3,5,7,5,5])
+        print(duplicate)
     }
     
     
@@ -242,6 +246,31 @@ class ViewController: UIViewController {
         return finalArr
     }
     
+    //MARK: Remove Duplicate from array
+    func removeDuplicate(inputArr:[Int]) -> [Int]
+    {
+        
+        var current  = inputArr[0]
+        var finalArr : [Int] = []
+        var compArr : Array<Int> = []
+        
+        
+        for i in 0...inputArr.count-1 {
+            
+            if (current == inputArr[i]) {
+                finalArr.append(current)
+
+            }else if (current != inputArr[i]){
+                
+                current = inputArr[i]
+                
+                compArr.append(current)
+            }
+        }
+
+     //   print("compa ARR \(difference)")
+         return finalArr
+    }
     
     func IsRemoveDuplicateCharacter(inputStr:String) -> String {
         
@@ -269,10 +298,16 @@ class ViewController: UIViewController {
         return "wfwf"
     }
     
-    
-    
-    
-
-
 }
+    
+    
+
+    extension Array where Element: Hashable {
+        func difference(from other: [Element]) -> [Element] {
+            let thisSet = Set(self)
+            let otherSet = Set(other)
+            return Array(thisSet.symmetricDifference(otherSet))
+        }
+    }
+
 
