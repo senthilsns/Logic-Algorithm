@@ -16,7 +16,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+    
+       if NetworkManager.SharedInstance.isNetworkReachable() == false
+       {
+        AlertManager.SharedInstance.alertWithoutHandler(alertTitle: "Internet Connection Required", alertMessage: nil, alertImage: nil, alertButtonTitle: "OK")
+
         
+        }
+        
+        
+        
+
         //MARK: Prime number or not
         let isNumber : String = isPrimeNumber(number: 1)
         print(isNumber)
@@ -214,11 +224,14 @@ class ViewController: UIViewController {
     //MARK: Missing Element in Array
     func isMissingElement(InputArr:[Int]) -> Int {
         var n : Int = 0
+        var n2 : Int = 0
+
         var total :Int = 0
         n = InputArr.count-1
+        n2 = InputArr.count
         
-        total = (n + 1) * (n + 2) / 2
-        for i in 0...n {
+        total = (n2 + 1) * (n2 + 2) / 2
+        for i in 0...n-1 {
             total -= InputArr[i]
         }
         
@@ -296,18 +309,22 @@ class ViewController: UIViewController {
         }
         
         return "wfwf"
+        
     }
     
 }
     
     
 
-    extension Array where Element: Hashable {
-        func difference(from other: [Element]) -> [Element] {
-            let thisSet = Set(self)
-            let otherSet = Set(other)
-            return Array(thisSet.symmetricDifference(otherSet))
-        }
-    }
+   
 
 
+//var arrayOne = ["dog", "cat", "hamster", "gerbil", "turtle"],
+//    arrayTwo = ["hamster", "turtle", "gerbil"],
+//    doNotMatch = [];
+//
+//for(var i=0;i<arrayOne.length;i++){
+//   if(arrayTwo.indexOf(arrayOne[i])==-1){doNotMatch.push(arrayOne[i]);}
+//}
+//
+////doNotMatch is now ["dog","cat"]
